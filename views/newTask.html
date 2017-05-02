@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>My task list</title>
+		<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css"/>
+  		<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap-theme.min.css"/>
+  		<link rel="stylesheet" href="/css/styles.css">
+	</head>
+	<body>
+		<div class="navbar navbar-inverse navbar-fixed-top">
+		  <div class="container">
+		    <div class="navbar-header">
+		      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+		      <span class="icon-bar"></span>
+		      <span class="icon-bar"></span>
+		      <span class="icon-bar"></span>
+		      </button>
+		      <a class="navbar-brand" href="#">My task list</a>
+		    </div>
+		    <div class="collapse navbar-collapse">
+		      <ul class="nav navbar-nav">
+		        <li class="active"><a href="/">Home</a></li>
+		        <li><a href="/newtask">New Task</a></li>
+		      </ul>
+		    </div><!--/.nav-collapse -->
+		  </div>
+		</div>
+
+		<div class = "container">
+			<div class = "text-center">
+		  		<h1>Add new task</h1>
+		  	</div>
+
+		  	<!--DISPLAY ERRORS HERE-->
+		  	{% if message.length > 0 %}
+		  		<div class = "alert alert-danger alert-error">
+		  			{{ message }}
+		  		</div>
+		  	{% endif %}
+
+		  	<form class = "form-horizontal" role = "form" action = "/newtask" method = "post">
+		  	   <div class = "form-group">
+		  	      <label for = "taskName" class = "col-sm-2 control-label">What do you want to do?</label>
+		  	      <div class = "col-sm-10">
+		  	         <input type = "text" class = "form-control" id = "taskName" name = "taskName">
+		  	      </div>
+		  	   </div>
+		  	   <div class = "form-group">
+		  	      <label for = "days" class = "col-sm-2 control-label">Select a category</label>
+		  	      <div class = "col-sm-10">
+		  	         <select id = "category" name = "category" class = "form-control">
+		  	         	<option value = "None" selected="true" disabled="disabled">(Select Category)</option>
+		  	         	<option value = "Hobbies">Hobbies</option>
+		  	         	<option value = "Entertainment">Entertainment</option>
+		  	         	<option value = "Friends And Family">Friends And Family</option>
+		  	         	<option value = "Personal">Personal</option>
+		  	         	<option value = "Other">Other</option>
+		  	         </select>
+		  	      </div>
+		  	   </div>
+
+		  	   <div class = "form-group">
+		  	      <label for = "requiredTime" class = "col-sm-2 control-label">How many days will this take?</label>
+		  	      <div class = "col-sm-10">
+		  	         <input type = "text" class = "form-control" name ="requiredTime" id = "requiredTime">
+		  	      </div>
+		  	   </div>
+
+		  	   <div class = "form-group">
+		  	      <label for = "description" class = "col-sm-2 control-label">Description</label>
+		  	      <div class = "col-sm-10">
+		  	      	 <textarea id = "description" name = "description" class = "form-control" rows = "3"></textarea>
+		  	      </div>
+		  	   </div>
+
+		  	   <div class = "form-group">
+		  	      <div class = "col-sm-offset-2 col-sm-10">
+		  	         <button type = "submit" class = "btn btn-default">Add my new task</button>
+		  	      </div>
+		  	   </div>
+		  	</form>
+		</div>
+	</body>
+</html>

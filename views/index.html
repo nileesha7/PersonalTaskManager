@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>My task list</title>
+		<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css"/>
+  		<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap-theme.min.css"/>
+  		<link rel="stylesheet" href="/css/styles.css">
+	</head>
+	<body>
+		<div class="navbar navbar-inverse navbar-fixed-top">
+		  <div class="container">
+		    <div class="navbar-header">
+		      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+		      <span class="icon-bar"></span>
+		      <span class="icon-bar"></span>
+		      <span class="icon-bar"></span>
+		      </button>
+		      <a class="navbar-brand" href="#">My task list</a>
+		    </div>
+		    <div class="collapse navbar-collapse">
+		      <ul class="nav navbar-nav">
+		        <li class="active"><a href="/">Home</a></li>
+		        <li><a href="/newtask">New Task</a></li>
+		      </ul>
+		      </div><!--/.nav-collapse -->
+		    </div>
+		  </div>
+
+		  <div class = "container">
+		  	<div class = "text-center">
+		  		<h1>List of my tasks</h1>
+		  	</div>
+		  	<div class="col-md-12 column list-group">
+		  		{% for task in tasks %}
+		  			<div class = "list-group-item">
+		  				<div>Task Created on: {{ task.createdOn.toDateString()}}</div>
+		  				<div> <strong>Task Name: </strong>{{ task.taskName }}</div>
+		  				<div> <strong>Category: </strong>{{ task.category }}</div>
+		  				<div> <strong>Required Time for task: </strong>{{ task.requiredTime }}</div>
+		  				<div> <strong>Description: </strong>{{ task.description }}</div>
+		  			</div>
+		  		{% endfor %}
+		  	</div>
+		  </div>
+	</body>
+</html>
